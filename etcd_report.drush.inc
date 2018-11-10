@@ -48,7 +48,7 @@ function drush_etcd_report($server = "http://localhost:2379", $directory = "d7/@
 function _etc_report_send_data($server, $user, $pass, $directory, $type, $data)
 {
     $result = drupal_http_request(
-        $server . '/v2/keys/' . $directory . '/modules',
+        $server . '/v2/keys/' . $directory . '/'.$type,
         [
             "method" => "PUT",
             "headers" => [
