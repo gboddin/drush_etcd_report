@@ -57,11 +57,11 @@ function _etc_report_send_data($server, $user, $pass, $directory, $type, $data)
             "data" => "value=" . urlencode($data)
         ]
     );
-    if ($result->code != 200) {
-        drush_print('Failed to report ' . $type . ' to ' . $server . ' in ' . $directory . '/' . $type . ' ...');
-        return false;
-    } else {
+    if ($result->code == 200 || $result->code == 201) {
         drush_print('Reported ' . $type . ' to ' . $server . ' in ' . $directory . '/' . $type . ' ...');
         return true;
+    } else {
+        drush_print('Failed to report ' . $type . ' to ' . $server . ' in ' . $directory . '/' . $type . ' ...');
+        return false;
     }
 }
