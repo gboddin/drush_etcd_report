@@ -1,0 +1,3 @@
+name = Drush ETCD report plugin
+description = Reports Drupal informations to ETCD
+core = 7.x
